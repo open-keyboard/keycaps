@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>keyboard_UI_gen</title>
+<meta name="description" content="">
+<link href="./css/keycaps.css" rel="stylesheet">
+<style>
+    .vertical_middle:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+    .keycaps {
+        display: inline-block;
+        line-height: 1;
+        padding-top: .8em;
+    }
+</style>
+</head>
+<body>
+    <h1>ANSI 60%</h1>
+    <div class="keyboards"></div>
+    <hr>
+    <h1>ISO 60%</h1>
+    <div class="keyboards"></div>
+</body>
+<script>
+var LAYOUT = {
+    '60%': {
+        ansi: [{
+            val: ['Ctrl', 'Win', 'Alt', 'Spacebar', 'Alt', 'Win', 'Menu', 'Ctrl'],
+            keyCode: ['17_1', '91_1', '18_1', '32_0', '18_2', '92_0', '93_0', '17_2'],
+            size: ['1_25', '1_25', '1_25', '6_25', '1_25', '1_25', '1_25', '1_25']
+        }, {
+            val: ['Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'Shift'],
+            keyCode: ['16_1', '90_0', '88_0', '67_0', '86_0', '66_0', '78_0', '77_0', '188_0', '190_0', '191_0', '16_2'],
+            size: ['2_25', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2_75']
+        }, {
+            val: ['Caps Lock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', 'Enter'],
+            keyCode: ['20_0', '65_0', '83_0', '68_0', '70_0', '71_0', '72_0', '74_0', '75_0', '76_0', '186_0', '222_0', '13_0'],
+            size: ['1_75', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2_25']
+        }, {
+            val: ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\'],
+            keyCode: ['9_0', '81_0', '87_0', '69_0', '82_0', '84_0', '89_0', '85_0', '73_0', '79_0', '80_0', '219_0', '221_0', '220_0'],
+            size: ['1_5', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1_5']
+        }, {
+            val: ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Back Space'],
+            keyCode: ['192_0', '49_0', '50_0', '51_0', '52_0', '53_0', '54_0', '55_0', '56_0', '57_0', '48_0', '189_0', '187_0', '8_0'],
+            size: ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2']
+        }],
+        iso: [{
+            val: ['Ctrl', 'Win', 'Alt', 'Spacebar', 'Alt', 'Win', 'Menu', 'Ctrl'],
+            keyCode: ['17_1', '91_1', '18_1', '32_0', '18_2', '92_0', '93_0', '17_2'],
+            size: ['1_25', '1_25', '1_25', '6_25', '1_25', '1_25', '1_25', '1_25']
+        }, {
+            val: ['Shift', '\\', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'Shift'],
+            keyCode: ['16_1', '73_0', '90_0', '88_0', '67_0', '86_0', '66_0', '78_0', '77_0', '188_0', '190_0', '191_0', '16_2'],
+            size: ['1_25', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2_75']
+        }, {
+            val: ['Caps Lock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', '`'],
+            keyCode: ['20_0', '65_0', '83_0', '68_0', '70_0', '71_0', '72_0', '74_0', '192_0', '76_0', '186_0', '222_0', '13_0'],
+            size: ['1_75', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1']
+        }, {
+            val: ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'Enter'],
+            keyCode: ['9_0', '81_0', '87_0', '69_0', '82_0', '84_0', '89_0', '85_0', '75_0', '79_0', '80_0', '219_0', '221_0', '220_0'],
+            size: ['1_5', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'enter_iso']
+        }, {
+            val: ['¬', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Back Space'],
+            keyCode: ['192_0', '49_0', '50_0', '51_0', '52_0', '53_0', '54_0', '55_0', '56_0', '57_0', '48_0', '189_0', '187_0', '8_0'],
+            size: ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2']
+        }],
+    }
+};
+
+function initUIKeyboard (dom, keyboard, type) {
+    if (!keyboard) {
+        console.error('initUIKeyboard', 'no set keyboard');
+        return;
+    }
+    var type = type || 'ansi',
+        layout = LAYOUT[keyboard][type],
+        DOMKeyboard = document.createElement('div'),
+        rowCount = LAYOUT[keyboard][type].length,
+        colCount = 14;
+    DOMKeyboard.setAttribute('class', 'keyboard');
+    for (var i = LAYOUT[keyboard][type].length - 1; i >= 0; i--) {
+        var row = document.createElement('div');
+        row.setAttribute('class', 'clearfix row-' + i);
+        for (var j = 0; j < layout[i].val.length; j++) {
+            var keycaps = document.createElement('div');
+            keycaps.setAttribute('id', 'matrix_' + i + '_' + j);
+            keycaps.setAttribute('class', 'keycaps keycap_' + layout[i].size[j] + ' code_' + layout[i].keyCode[j] + '');
+            keycaps.innerHTML = layout[i].val[j];
+            // keycaps.innerHTML = '';
+            row.appendChild(keycaps);
+        }
+        DOMKeyboard.appendChild(row);
+    }
+    dom.appendChild(DOMKeyboard);
+}
+var keyboards = document.querySelectorAll('.keyboards'),
+    keyboardGen = [
+        {
+            'keyboard': '60%',
+            'type': 'ansi'
+        },
+        {
+            'keyboard': '60%',
+            'type': 'iso'
+        }
+
+    ];
+for (var i = 0; i < keyboards.length; i++) {
+    initUIKeyboard (keyboards[i], keyboardGen[i]['keyboard'], keyboardGen[i]['type']);
+}
+</script>
+</html>
