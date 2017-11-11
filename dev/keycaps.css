@@ -137,8 +137,20 @@
   border-bottom: transparent;
   box-sizing: border-box;
 }
-.blank_1 {
-    position: relative;
+.keycap_blank_1 {
     width: calc(var(--keyCapSize) * 1);
     height: calc(var(--keyCapSize) * 1);
+    border: 7px solid transparent;
+}
+
+.keycap_blank_1_25 {
+    width: calc(var(--keyCapSize) * 1.25);
+    height: calc(var(--keyCapSize) * 1);
+    border: 7px solid transparent;
+}
+
+.keycap_blank_0_66 {
+    width: calc(var(--keyCapSize) * 0.66);
+    height: calc(var(--keyCapSize) * 1);
+    border: 7px solid transparent;
 }
