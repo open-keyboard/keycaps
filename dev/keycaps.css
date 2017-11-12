@@ -20,6 +20,7 @@
 .keycap_2,
 .keycap_2_25,
 .keycap_2_75,
+.keycap_3,
 .keycap_4,
 .keycap_5,
 .keycap_6,
@@ -50,8 +51,11 @@
 .keycap_2_75 {
     width: calc(var(--keyCapSize) * 2.75);
 }
+.keycap_3 {
+    width: calc(var(--keyCapSize) * 3);
+}
 .keycap_4 {
-    width: calc(var(--keyCapSize) * 5);
+    width: calc(var(--keyCapSize) * 4);
 }
 .keycap_5 {
     width: calc(var(--keyCapSize) * 5);
