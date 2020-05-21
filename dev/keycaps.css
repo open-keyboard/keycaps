@@ -166,3 +166,9 @@
     height: calc(var(--keyCapSize) * 1);
     border: 7px solid transparent;
 }
+
+.keycap_blank_0_83 {
+    width: calc(var(--keyCapSize) * 0.83);
+    height: calc(var(--keyCapSize) * 1);
+    border: 7px solid transparent;
+}
