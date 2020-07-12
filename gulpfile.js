@@ -5,20 +5,19 @@
  * @version $Id$
  */
 
-var gulp = require('gulp');
+const { watch, src, dest, series } = require('gulp');
 var cssnext = require("gulp-cssnext");
 
-gulp.task('default', ['css', 'watch']);
+function css (cb) {
+    return src("dev/*.css")
+        .pipe(cssnext({
+            compress: true
+        }))
+        .pipe(dest("./css/"));
 
-gulp.task('watch', function() {
-    gulp.watch(['./dev/**'], ['css']);
-});
+}
 
-gulp.task("css", function() {
-  gulp.src("dev/*.css")
-    .pipe(cssnext({
-        compress: true
-    }))
-    .pipe(gulp.dest("./css/"));
-});
-
+exports.default = function () {
+    // You can use a single task
+    watch(['./dev/**'], css);
+};

@@ -40,6 +40,10 @@
 .keycap_1_5 {
     width: calc(var(--keyCapSize) * 1.5);
 }
+.keycap_1_5_col {
+    width: calc(var(--keyCapSize) * 1);
+    height: calc(var(--keyCapSize) * 1.5);
+}
 .keycap_1_75 {
     width: calc(var(--keyCapSize) * 1.75);
 }

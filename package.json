@@ -1,10 +1,13 @@
 {
-  "name": "gulp",
+  "name": "",
   "version": "3.8.7",
   "devDependencies": {
     "autoprefixer": "^6.1.0",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-cssnext": "^1.0.1",
     "gulp-watch": "^4.3.5"
+  },
+  "dependencies": {
+    "save-dev": "0.0.1-security"
   }
 }
